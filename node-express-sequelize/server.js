@@ -9,8 +9,11 @@ var User = sequelize.define('User', {
 
 /*  Create a '/users' route that responds to 
     a GET request with all users in the database */
+app.get('/users', handleUsers)
 
-
+var handleUsers = function (req, res) {
+	User.get
+}
 
 module.exports = { 
   app: app,
