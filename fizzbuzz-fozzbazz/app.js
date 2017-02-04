@@ -17,7 +17,7 @@ angular.module('app', ['ngRoute'])
 
 /*  HINT: Make sure your controllers, methods, and variables 
     are named what $routeProvider and the partials are expecting  */
-
+    
   .factory('counter', function($rootScope){
 
       //declaring the counter in rootScope so all controller can see it
