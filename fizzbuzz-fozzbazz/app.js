@@ -19,8 +19,11 @@ angular.module('app', ['ngRoute'])
     are named what $routeProvider and the partials are expecting  */
 
   .factory('counter', function($rootScope){
+
+      //declaring the counter in rootScope so all controller can see it
       $rootScope.count = 0;
 
+      //fizzbuzz function that return result based on result
       var fizzbuzz = function(count){
         if(count % 5 === 0 && count % 3 === 0){
           return "fizzbuzz";
@@ -33,6 +36,7 @@ angular.module('app', ['ngRoute'])
         }
       }
 
+      //fozzbazz function that return result based on result
       var fozzbazz = function(count){
         if(count % 4 === 0 && count % 6 === 0){
           return "fozzbazz";
@@ -52,20 +56,30 @@ angular.module('app', ['ngRoute'])
   })
   .controller('fizzbuzzCtrl', function($scope, $rootScope, counter){
 
+    //just initializing the display variable with some text to click on
     $scope.display = "start";
 
+    //increment function that increase the counter and call the fizzbuzz function
     $scope.increment = function(){
+
+      //using the rootScope counter so its shared between both controllers
       $rootScope.count++;
       $scope.display = counter.fizzbuzz($scope.count);
+
     }
 
   })
   .controller('fozzbazzCtrl', function($scope, $rootScope, counter){
 
+    //just initializing the display variable with some text to click on
     $scope.display = "start";
-    
+
+    //increment function that increase the counter and call the fizzbuzz function
     $scope.increment = function(){
+
+      //using the rootScope counter so its shared between both controllers
       $rootScope.count++;
       $scope.display = counter.fozzbazz($rootScope.count);
+
     }
   });
