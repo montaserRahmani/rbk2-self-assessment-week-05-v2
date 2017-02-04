@@ -18,27 +18,27 @@ angular.module('app', ['ngRoute'])
 /*  HINT: Make sure your controllers, methods, and variables 
     are named what $routeProvider and the partials are expecting  */
 
-  .factory('counter', function($scope){
-      $scope.counter = 0;
+  .factory('counter', function(){
 
-      var fizzbuzz = function(counter){
-        if(counter % 5 === 0 && counter % 3 === 0){
+
+      var fizzbuzz = function(count){
+        if(count % 5 === 0 && count % 3 === 0){
           return "fizzbuzz";
-        } else if (counter % 3 === 0){
+        } else if (count % 3 === 0){
           return "fizz";
-        } else if (counter % 5 === 0){
+        } else if (count % 5 === 0){
           return "buzz";
         } else {
           return "click again";
         }
       }
 
-      var fozzbazz = function(counter){
-        if(counter % 4 === 0 && counter % 6 === 0){
+      var fozzbazz = function(count){
+        if(count % 4 === 0 && count % 6 === 0){
           return "fozzbazz";
-        } else if (counter % 4 === 0){
+        } else if (count % 4 === 0){
           return "fozz";
-        } else if (counter % 6 === 0){
+        } else if (count % 6 === 0){
           return "bazz";
         } else {
           return "click again";
@@ -50,15 +50,19 @@ angular.module('app', ['ngRoute'])
         fozzbazz : fozzbazz
       }
   })
-  .controller('fizzbuzzCtrl', function($scope, counter){
-    $scope.counter = 0;
+  .controller('fizzbuzzCtrl', function($scope, $rootScope, counter){
+    $rootScope.count = 0;
+    $scope.display = "start";
     $scope.increment = function(){
-      $scope.display = counter.fizzbuzz($scope.counter);
+      $scope.count++;
+      $scope.display = counter.fizzbuzz($scope.count);
     }
 
   })
-  .controller('fozzbazzCtrl', function(){
+  .controller('fozzbazzCtrl', function($scope, $rootScope, counter){
+    $scope.display = "start";
     $scope.increment = function(){
-      $scope.display = counter.fozzbazz($scope.counter);
+      $rootScope.count++;
+      $scope.display = counter.fozzbazz($rootScope.count);
     }
   });
