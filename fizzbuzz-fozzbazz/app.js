@@ -18,8 +18,8 @@ angular.module('app', ['ngRoute'])
 /*  HINT: Make sure your controllers, methods, and variables 
     are named what $routeProvider and the partials are expecting  */
 
-  .factory('counter', function(){
-
+  .factory('counter', function($rootScope){
+      $rootScope.count = 0;
 
       var fizzbuzz = function(count){
         if(count % 5 === 0 && count % 3 === 0){
@@ -51,16 +51,19 @@ angular.module('app', ['ngRoute'])
       }
   })
   .controller('fizzbuzzCtrl', function($scope, $rootScope, counter){
-    $rootScope.count = 0;
+
     $scope.display = "start";
+
     $scope.increment = function(){
-      $scope.count++;
+      $rootScope.count++;
       $scope.display = counter.fizzbuzz($scope.count);
     }
 
   })
   .controller('fozzbazzCtrl', function($scope, $rootScope, counter){
+
     $scope.display = "start";
+    
     $scope.increment = function(){
       $rootScope.count++;
       $scope.display = counter.fozzbazz($rootScope.count);
