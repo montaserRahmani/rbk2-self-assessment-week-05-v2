@@ -17,7 +17,7 @@ angular.module('app', ['ngRoute'])
 
 /*  HINT: Make sure your controllers, methods, and variables 
     are named what $routeProvider and the partials are expecting  */
-    
+
   .factory('counter', function($rootScope){
 
       //declaring the counter in rootScope so all controller can see it
@@ -32,6 +32,7 @@ angular.module('app', ['ngRoute'])
         } else if (count % 5 === 0){
           return "buzz";
         } else {
+          //incase its not divisble by 3 or 5 at all, just a text to click on
           return "click again";
         }
       }
@@ -45,6 +46,7 @@ angular.module('app', ['ngRoute'])
         } else if (count % 6 === 0){
           return "bazz";
         } else {
+          //incase its not divisble by 3 or 5 at all, just a text to click on
           return "click again";
         }
       }
