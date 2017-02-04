@@ -26,8 +26,8 @@ After you complete each prompt, assign a grade to each item in the Grading Outli
 
 ### Grading Outline
 
-- [ ] node-express-sequelize
-- [ ] fizzbuzz-fozzbazz
+- [ complete ] node-express-sequelize
+- [ complete ] fizzbuzz-fozzbazz
 
 ### Grading Scale
 
